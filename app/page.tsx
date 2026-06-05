@@ -2,6 +2,18 @@ import { SectionTitle } from '@/components/SectionTitle'
 import { FaqAccordion, type FaqItem } from '@/components/FaqAccordion'
 import { ScrollReveal } from '@/components/ScrollReveal'
 
+// TODO: JSON-LD 구조화 데이터 추가 — 구글 검색 결과에 브랜드 정보 노출
+// 도메인 확정 후 아래 코드를 <main> 위에 추가:
+// const jsonLd = {
+//   '@context': 'https://schema.org',
+//   '@type': 'Organization',
+//   name: 'KASANE',
+//   url: 'https://kasane.kr',
+//   description: '테누구이에서 출발한 스타일링 클로스 브랜드',
+//   contactPoint: { '@type': 'ContactPoint', email: 'hello@kasane.kr' },
+// }
+// <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
 const BRAND_NAME = 'KASANE'
 
 type UseCaseItem = { id: string; number: string; visual: string; title: string; desc: string }
