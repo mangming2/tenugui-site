@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { SectionTitle } from './components/SectionTitle';
 import { FaqAccordion, type FaqItem } from './components/FaqAccordion';
 
-const BRAND_NAME = 'BRAND_NAME';
+const BRAND_NAME = 'KASANE';
 
 type UseCaseItem = {
   id: string;
