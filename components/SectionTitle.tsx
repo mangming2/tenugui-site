@@ -1,7 +1,7 @@
 interface SectionTitleProps {
-  eyebrow?: string;
-  heading: string;
-  headingSize?: 'xl' | 'lg' | 'md';
+  eyebrow?: string
+  heading: string
+  headingSize?: 'xl' | 'lg' | 'md'
 }
 
 export function SectionTitle({ eyebrow, heading, headingSize = 'lg' }: SectionTitleProps) {

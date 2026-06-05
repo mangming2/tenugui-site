@@ -42,19 +42,13 @@ tenugui-site/
 ## Design Tokens
 
 ```css
---color-bg:        #f7f4ef   /* 아이보리 배경 */
---color-surface:   #f0ebe3   /* 카드/섹션 배경 */
---color-warm-gray: #b8a99a   /* 보조 텍스트 */
---color-charcoal:  #2c2825   /* 주요 텍스트 */
---color-ink:       #1a1714   /* 헤딩 */
---color-indigo:    #3a3f5c   /* 포인트 컬러, 아주 제한적 사용 */
---color-border:    #ddd5c8   /* 라인, 구분선 */
-
---font-serif: 'Cormorant Garamond', Georgia, serif
---font-sans:  'Noto Sans KR', sans-serif
-
---spacing-section: 120px     /* 섹션 간 여백 (모바일 80px) */
---max-width: 960px
+--color-bg:
+  #f7f4ef /* 아이보리 배경 */ --color-surface: #f0ebe3 /* 카드/섹션 배경 */
+    --color-warm-gray: #b8a99a /* 보조 텍스트 */ --color-charcoal: #2c2825 /* 주요 텍스트 */
+    --color-ink: #1a1714 /* 헤딩 */ --color-indigo: #3a3f5c /* 포인트 컬러, 아주 제한적 사용 */
+    --color-border: #ddd5c8 /* 라인, 구분선 */ --font-serif: 'Cormorant Garamond',
+  Georgia, serif --font-sans: 'Noto Sans KR',
+  sans-serif --spacing-section: 120px /* 섹션 간 여백 (모바일 80px) */ --max-width: 960px;
 ```
 
 ---
@@ -62,6 +56,7 @@ tenugui-site/
 ## Sections
 
 ### 1. Hero
+
 - 풀스크린 높이, 세로 중앙 정렬
 - 배경: CSS 텍스처 패턴 (pseudo-element 노이즈 그라데이션)
 - 대형 카피 (Cormorant Garamond, 7rem), 짧은 서브 카피
@@ -69,34 +64,41 @@ tenugui-site/
 - 아주 은은한 fade-in 애니메이션 (prefers-reduced-motion 대응)
 
 ### 2. Brand Concept
+
 - 텍스트 중심, 좌우 여백 넉넉
 - 브랜드 철학 단락 + 테누구이 소재 설명
 - 얇은 수평선 디바이더
 
 ### 3. Styling Use Cases
+
 - 4개 카드 그리드 (목 / 머리 / 가방 / 손목)
 - 카드: CSS 배경 패턴 플레이스홀더 + 제목 + 한 줄 설명
 - 아주 약한 box-shadow, hover 시 미세 lift
 
 ### 4. For Who
+
 - 타겟 3개를 감성적 문장으로 — 노골적 세일즈 없이
 - 배경 tint 변환으로 섹션 구분
 
 ### 5. Brand Mood / Lookbook Preview
+
 - 3개 카드 (street snap / daily layer / quiet accent)
 - 카드마다 CSS 그라데이션 배경 + 소제목 + 짧은 무드 설명
 - 가로 스크롤 없이 그리드
 
 ### 6. Value / Philosophy
+
 - 4개 핵심 가치 — 아이콘 없이 타이포만으로 구성
 - 각 항목: 한 줄 제목 + 짧은 설명
 
 ### 7. FAQ
+
 - Radix UI Accordion
 - 4-5개 Q&A
 - 스타일: 기본 Radix 스타일 완전 오버라이드, 브랜드 톤에 맞게
 
 ### 8. Footer / Final CTA
+
 - "곧 공개됩니다" 마무리 카피
 - 인스타그램, 문의 메일 링크
 - 브랜드명 + 짧은 태그라인

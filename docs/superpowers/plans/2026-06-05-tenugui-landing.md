@@ -12,23 +12,24 @@
 
 ## File Map
 
-| File | Role |
-|------|------|
-| `index.html` | 폰트 로드, 메타 태그, 앱 마운트 |
-| `package.json` | 의존성 |
-| `vite.config.ts` | Vite 설정 |
-| `tsconfig.json` / `tsconfig.app.json` / `tsconfig.node.json` | TS 설정 |
-| `src/main.tsx` | React 앱 진입점 |
-| `src/App.tsx` | 모든 섹션 포함 메인 컴포넌트 |
-| `src/styles.css` | 디자인 토큰 + 전체 스타일 |
-| `src/components/SectionTitle.tsx` | 섹션 제목 공통 컴포넌트 |
-| `src/components/FaqAccordion.tsx` | Radix 기반 FAQ 아코디언 |
+| File                                                         | Role                            |
+| ------------------------------------------------------------ | ------------------------------- |
+| `index.html`                                                 | 폰트 로드, 메타 태그, 앱 마운트 |
+| `package.json`                                               | 의존성                          |
+| `vite.config.ts`                                             | Vite 설정                       |
+| `tsconfig.json` / `tsconfig.app.json` / `tsconfig.node.json` | TS 설정                         |
+| `src/main.tsx`                                               | React 앱 진입점                 |
+| `src/App.tsx`                                                | 모든 섹션 포함 메인 컴포넌트    |
+| `src/styles.css`                                             | 디자인 토큰 + 전체 스타일       |
+| `src/components/SectionTitle.tsx`                            | 섹션 제목 공통 컴포넌트         |
+| `src/components/FaqAccordion.tsx`                            | Radix 기반 FAQ 아코디언         |
 
 ---
 
 ### Task 1: 프로젝트 스캐폴딩
 
 **Files:**
+
 - Create: `package.json`
 - Create: `vite.config.ts`
 - Create: `tsconfig.json`, `tsconfig.app.json`, `tsconfig.node.json`
@@ -77,17 +78,16 @@ export default defineConfig({
 - [ ] **Step 3: tsconfig 파일 세 개 작성**
 
 `tsconfig.json`:
+
 ```json
 {
   "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }]
 }
 ```
 
 `tsconfig.app.json`:
+
 ```json
 {
   "compilerOptions": {
@@ -112,6 +112,7 @@ export default defineConfig({
 ```
 
 `tsconfig.node.json`:
+
 ```json
 {
   "compilerOptions": {
@@ -168,7 +169,7 @@ import App from './App'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )
 ```
 
@@ -185,6 +186,7 @@ Expected: node_modules 생성, lock 파일 생성
 ### Task 2: 디자인 토큰 + 전체 CSS
 
 **Files:**
+
 - Create: `src/styles.css`
 
 - [ ] **Step 1: styles.css 작성 — 전체 내용**
@@ -228,7 +230,9 @@ Expected: node_modules 생성, lock 파일 생성
 }
 
 /* ===== Reset & Base ===== */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -249,7 +253,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -355,7 +363,7 @@ section {
   border: 1px solid var(--color-border);
 }
 
-.btn-outline[aria-disabled="true"] {
+.btn-outline[aria-disabled='true'] {
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -478,8 +486,13 @@ section {
 }
 
 @keyframes scrollBounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(6px); }
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(6px);
+  }
 }
 
 /* ===== Fade-in animation ===== */
@@ -489,10 +502,18 @@ section {
   animation: fadeUp 0.9s ease forwards;
 }
 
-.fade-up-delay-1 { animation-delay: 0.1s; }
-.fade-up-delay-2 { animation-delay: 0.25s; }
-.fade-up-delay-3 { animation-delay: 0.4s; }
-.fade-up-delay-4 { animation-delay: 0.55s; }
+.fade-up-delay-1 {
+  animation-delay: 0.1s;
+}
+.fade-up-delay-2 {
+  animation-delay: 0.25s;
+}
+.fade-up-delay-3 {
+  animation-delay: 0.4s;
+}
+.fade-up-delay-4 {
+  animation-delay: 0.55s;
+}
 
 @keyframes fadeUp {
   to {
@@ -555,7 +576,9 @@ section {
   border: 1px solid var(--color-border-light);
   padding: 0;
   overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 }
 
 .use-case-card:hover {
@@ -598,61 +621,55 @@ section {
 
 /* Use case visual placeholders */
 .uc-neck {
-  background:
-    linear-gradient(135deg, #e8ddd0 0%, #d4c9bb 40%, #c8bfb2 100%);
+  background: linear-gradient(135deg, #e8ddd0 0%, #d4c9bb 40%, #c8bfb2 100%);
 }
 .uc-neck::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      rgba(255,255,255,0.08) 20px,
-      rgba(255,255,255,0.08) 21px
-    );
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 20px,
+    rgba(255, 255, 255, 0.08) 20px,
+    rgba(255, 255, 255, 0.08) 21px
+  );
 }
 
 .uc-hair {
-  background:
-    linear-gradient(160deg, #d6cec4 0%, #bfb5a8 50%, #a89e92 100%);
+  background: linear-gradient(160deg, #d6cec4 0%, #bfb5a8 50%, #a89e92 100%);
 }
 .uc-hair::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.15) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
 }
 
 .uc-bag {
-  background:
-    linear-gradient(200deg, #c8c4be 0%, #b0a89e 50%, #9a9088 100%);
+  background: linear-gradient(200deg, #c8c4be 0%, #b0a89e 50%, #9a9088 100%);
 }
 .uc-bag::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(
-      -45deg,
-      transparent,
-      transparent 24px,
-      rgba(0,0,0,0.04) 24px,
-      rgba(0,0,0,0.04) 25px
-    );
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 24px,
+    rgba(0, 0, 0, 0.04) 24px,
+    rgba(0, 0, 0, 0.04) 25px
+  );
 }
 
 .uc-wrist {
-  background:
-    linear-gradient(110deg, #3a3f5c 0%, #4a4e68 40%, #5a5e78 100%);
+  background: linear-gradient(110deg, #3a3f5c 0%, #4a4e68 40%, #5a5e78 100%);
 }
 .uc-wrist::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 70% 70%, rgba(255,255,255,0.08) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 70% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
 }
 
 /* ===== For Who Section ===== */
@@ -726,52 +743,47 @@ section {
 }
 
 .lb-street {
-  background:
-    linear-gradient(175deg, #2c2825 0%, #3d3530 40%, #4e4540 80%, #5a4f48 100%);
+  background: linear-gradient(175deg, #2c2825 0%, #3d3530 40%, #4e4540 80%, #5a4f48 100%);
 }
 .lb-street::after {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at 60% 40%, rgba(184,169,154,0.15) 0%, transparent 55%),
+    radial-gradient(ellipse at 60% 40%, rgba(184, 169, 154, 0.15) 0%, transparent 55%),
     repeating-linear-gradient(
       0deg,
       transparent,
       transparent 40px,
-      rgba(255,255,255,0.015) 40px,
-      rgba(255,255,255,0.015) 41px
+      rgba(255, 255, 255, 0.015) 40px,
+      rgba(255, 255, 255, 0.015) 41px
     );
 }
 
 .lb-daily {
-  background:
-    linear-gradient(140deg, #e8ddd0 0%, #d4c8b8 40%, #c0b4a4 100%);
+  background: linear-gradient(140deg, #e8ddd0 0%, #d4c8b8 40%, #c0b4a4 100%);
 }
 .lb-daily::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 40% 60%, rgba(255,255,255,0.2) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 40% 60%, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
 }
 
 .lb-quiet {
-  background:
-    linear-gradient(160deg, #e4e0da 0%, #d0c9c0 50%, #bfb8af 100%);
+  background: linear-gradient(160deg, #e4e0da 0%, #d0c9c0 50%, #bfb8af 100%);
 }
 .lb-quiet::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    repeating-linear-gradient(
-      90deg,
-      transparent,
-      transparent 48px,
-      rgba(0,0,0,0.025) 48px,
-      rgba(0,0,0,0.025) 49px
-    );
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 48px,
+    rgba(0, 0, 0, 0.025) 48px,
+    rgba(0, 0, 0, 0.025) 49px
+  );
 }
 
 .lookbook-overlay {
@@ -781,19 +793,19 @@ section {
   flex-direction: column;
   justify-content: flex-end;
   padding: var(--spacing-md);
-  background: linear-gradient(to top, rgba(26,23,20,0.5) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(26, 23, 20, 0.5) 0%, transparent 55%);
   z-index: 1;
 }
 
 .lb-street .lookbook-overlay {
-  background: linear-gradient(to top, rgba(26,23,20,0.65) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(26, 23, 20, 0.65) 0%, transparent 50%);
 }
 
 .lookbook-tag {
   font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(247,244,239,0.7);
+  color: rgba(247, 244, 239, 0.7);
   margin-bottom: 6px;
 }
 
@@ -818,12 +830,12 @@ section {
 
 .lb-daily .lookbook-overlay,
 .lb-quiet .lookbook-overlay {
-  background: linear-gradient(to top, rgba(224,218,210,0.7) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(224, 218, 210, 0.7) 0%, transparent 55%);
 }
 
 .lookbook-mood {
   font-size: 11px;
-  color: rgba(247,244,239,0.55);
+  color: rgba(247, 244, 239, 0.55);
   font-weight: 300;
 }
 
@@ -912,7 +924,7 @@ section {
   color: var(--color-ink);
 }
 
-[data-radix-accordion-trigger][data-state="open"] {
+[data-radix-accordion-trigger][data-state='open'] {
   color: var(--color-ink);
 }
 
@@ -924,7 +936,7 @@ section {
   transition: transform var(--transition-base);
 }
 
-[data-radix-accordion-trigger][data-state="open"] .accordion-icon {
+[data-radix-accordion-trigger][data-state='open'] .accordion-icon {
   transform: rotate(45deg);
 }
 
@@ -932,22 +944,34 @@ section {
   overflow: hidden;
 }
 
-[data-radix-accordion-content][data-state="open"] {
+[data-radix-accordion-content][data-state='open'] {
   animation: slideDown 0.25s ease;
 }
 
-[data-radix-accordion-content][data-state="closed"] {
+[data-radix-accordion-content][data-state='closed'] {
   animation: slideUp 0.22s ease;
 }
 
 @keyframes slideDown {
-  from { height: 0; opacity: 0; }
-  to { height: var(--radix-accordion-content-height); opacity: 1; }
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
-  from { height: var(--radix-accordion-content-height); opacity: 1; }
-  to { height: 0; opacity: 0; }
+  from {
+    height: var(--radix-accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
 }
 
 .accordion-content-inner {
@@ -970,7 +994,7 @@ section {
   font-size: 11px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(247,244,239,0.35);
+  color: rgba(247, 244, 239, 0.35);
   margin-bottom: var(--spacing-md);
 }
 
@@ -985,7 +1009,7 @@ section {
 
 .footer-sub {
   font-size: 13px;
-  color: rgba(247,244,239,0.45);
+  color: rgba(247, 244, 239, 0.45);
   font-weight: 300;
   letter-spacing: 0.02em;
   margin-bottom: var(--spacing-xl);
@@ -1002,7 +1026,7 @@ section {
   font-size: 12px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(247,244,239,0.5);
+  color: rgba(247, 244, 239, 0.5);
   transition: color var(--transition-fast);
   font-weight: 400;
 }
@@ -1021,7 +1045,7 @@ section {
   align-items: center;
   justify-content: space-between;
   padding-top: var(--spacing-lg);
-  border-top: 1px solid rgba(247,244,239,0.08);
+  border-top: 1px solid rgba(247, 244, 239, 0.08);
 }
 
 .footer-brand {
@@ -1029,12 +1053,12 @@ section {
   font-size: 1.2rem;
   font-weight: 300;
   letter-spacing: 0.08em;
-  color: rgba(247,244,239,0.6);
+  color: rgba(247, 244, 239, 0.6);
 }
 
 .footer-copy {
   font-size: 11px;
-  color: rgba(247,244,239,0.2);
+  color: rgba(247, 244, 239, 0.2);
   letter-spacing: 0.06em;
 }
 
@@ -1126,17 +1150,18 @@ cd /Users/jiho/Documents/GitHub/tenugui-site && npx tsc --noEmit
 ### Task 3: SectionTitle 컴포넌트
 
 **Files:**
+
 - Create: `src/components/SectionTitle.tsx`
 
 - [ ] **Step 1: 컴포넌트 작성**
 
 ```tsx
 interface SectionTitleProps {
-  eyebrow?: string;
-  heading: string;
-  headingSize?: 'xl' | 'lg' | 'md';
-  italic?: boolean;
-  light?: boolean;
+  eyebrow?: string
+  heading: string
+  headingSize?: 'xl' | 'lg' | 'md'
+  italic?: boolean
+  light?: boolean
 }
 
 export function SectionTitle({
@@ -1163,7 +1188,7 @@ export function SectionTitle({
         {heading}
       </h2>
     </div>
-  );
+  )
 }
 ```
 
@@ -1172,21 +1197,22 @@ export function SectionTitle({
 ### Task 4: FaqAccordion 컴포넌트
 
 **Files:**
+
 - Create: `src/components/FaqAccordion.tsx`
 
 - [ ] **Step 1: 컴포넌트 작성**
 
 ```tsx
-import * as Accordion from '@radix-ui/react-accordion';
+import * as Accordion from '@radix-ui/react-accordion'
 
 interface FaqItem {
-  id: string;
-  question: string;
-  answer: string;
+  id: string
+  question: string
+  answer: string
 }
 
 interface FaqAccordionProps {
-  items: FaqItem[];
+  items: FaqItem[]
 }
 
 function PlusIcon() {
@@ -1202,16 +1228,12 @@ function PlusIcon() {
       <line x1="8" y1="2" x2="8" y2="14" />
       <line x1="2" y1="8" x2="14" y2="8" />
     </svg>
-  );
+  )
 }
 
 export function FaqAccordion({ items }: FaqAccordionProps) {
   return (
-    <Accordion.Root
-      type="single"
-      collapsible
-      className="faq-list"
-    >
+    <Accordion.Root type="single" collapsible className="faq-list">
       {items.map((item) => (
         <Accordion.Item key={item.id} value={item.id}>
           <Accordion.Header>
@@ -1226,7 +1248,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
         </Accordion.Item>
       ))}
     </Accordion.Root>
-  );
+  )
 }
 ```
 
@@ -1235,6 +1257,7 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
 ### Task 5: App.tsx — 전체 랜딩 페이지
 
 **Files:**
+
 - Create: `src/App.tsx`
 
 - [ ] **Step 1: App.tsx 전체 작성**
